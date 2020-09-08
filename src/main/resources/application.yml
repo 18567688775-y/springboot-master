@@ -1,0 +1,44 @@
+#数据库配置
+spring:
+  devtools:
+    remote:
+      restart:
+        enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  debug: true
+  spring:
+    devtools:
+      restart:
+        enabled: true  #设置开启热部署
+        additional-paths: src/main/java #重启目录
+        exclude: WEB-INF/**
+    freemarker:
+      cache: false    #页面不加载缓存，修改即时生效
+    redis:
+      database: 0             # Redis数据库索引（默认为0）
+      host: 127.0.0.1         # Redis服务器地址
+      port: 6379              # Redis服务器连接端口
+      password:               # Redis服务器连接密码（默认为空）
+      jedis.pool.max-active: 20             # 连接池最大连接数（使用负值表示没有限制）
+      jedis.pool.max-wait: -1                # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      jedis.pool.max-idle: 10                # 连接池中的最大空闲连接
+      jedis.pool.min-idle: 0                # 连接池中的最大空闲连接
+      timeout: 1000
+#可以了 两个选一个用把ok
+mybatis:   # 你看 你把这个注解取消掉就没事了 因为这个注解是说你mybatis sql映射路径 你既然写了这个 你就不能用 @select 这两种写sql的方式只能选择一个使用
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.entity
+  # spring boot集成mybatis的方式打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8080
+  servlet:
+    context-path: /boot
+
+
+
