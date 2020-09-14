@@ -9,4 +9,8 @@
   <select id="getSubName" parameterType="String" resultType="com.example.demo.entity.Subject">
     select * from subject where subjectName = #{subName}
   </select>
+  <select id="getSubAll" resultType="com.example.demo.entity.Subject">
+    SELECT * from subject
+  </select>
+
 </mapper>

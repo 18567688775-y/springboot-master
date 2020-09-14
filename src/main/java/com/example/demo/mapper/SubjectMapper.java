@@ -12,4 +12,7 @@ public interface SubjectMapper {
   List<Subject> getSubjectName(@Param("subjectName") String subjectName);
 
   Subject getSubName(@Param("subName") String subName);
+
+  List<Subject> getSubAll();
+
 }

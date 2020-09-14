@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.redis.RedisUtil;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,6 +26,18 @@ public class SubjectController {
     List list = subjectService.getSubjectName(subjectName);
     return list;
   }
+
+  @RequestMapping(value = "/getSubAll")
+  public List<Subject> getSubAll(){
+    List<Subject> list = subjectService.getSubAll();
+//    redisUtil.lSet("list",list);
+//    List list2 = redisUtil.lGet("list",0,-1);
+//    for(Subject s: list){
+//      System.out.println(s.getSubjectName());
+//    }
+    return list;
+  }
+
 
   @RequestMapping(value = "/getSubName")
   public Subject getSubName(@RequestParam String subName){

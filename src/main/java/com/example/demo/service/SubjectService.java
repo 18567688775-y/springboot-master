@@ -8,4 +8,6 @@ public interface SubjectService {
   List<Subject> getSubjectName(String subjectName);
 
   Subject getSubName(String subName);
+
+  List<Subject> getSubAll();
 }

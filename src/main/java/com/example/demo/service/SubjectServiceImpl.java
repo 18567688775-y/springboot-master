@@ -22,4 +22,9 @@ public class SubjectServiceImpl implements SubjectService {
   public Subject getSubName(String subName) {
     return subjectMapper.getSubName(subName);
   }
+
+  @Override
+  public List<Subject> getSubAll() {
+    return subjectMapper.getSubAll();
+  }
 }
